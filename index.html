@@ -25,18 +25,39 @@
     }
     header {
       background: #f7faff;
-      padding: 40px 0 30px 0;
+      padding: 25px 0 30px 0;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .logo-wrap {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+    .logo-wrap img {
+      height: 90px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .hero-content {
+      flex: 1 1 260px;
       text-align: center;
     }
     header h1 {
       font-size: 32px;
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
       color: #0a2a57;
     }
     header p.sub {
       margin: 0 0 10px 0;
       font-size: 16px;
       color: #4b5563;
+      font-weight: 500;
     }
     .hero-text {
       font-size: 18px;
@@ -84,6 +105,9 @@
     @media (min-width: 800px) {
       .services-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+      .hero-content {
+        text-align: left;
       }
     }
     .service-card {
@@ -222,26 +246,32 @@
 
   <!-- HERO -->
   <header>
-    <div class="container">
-      <h1>PLECO profesionalno čišćenje</h1>
-      <p class="sub">Zagreb – Maksimir i okolica</p>
-      <p class="hero-text">
-        Temeljito čišćenje stanova i kuća, završno čišćenje prije useljenja te dubinsko čišćenje namještaja i vozila.
-        Odaberi uslugu, unesi detalje i rezerviraj termin u par sekundi.
-      </p>
-
-      <a href="#rezervacija" class="cta-btn">
-        Provjeri cijenu &amp; rezerviraj
-      </a>
-
-      <div class="hero-contact">
-        <p>📞 <strong>099 399 7777</strong></p>
-        <p>📧 <strong>pleco.zg@hotmail.com</strong></p>
-        <p>
-          <a href="https://wa.me/385993997777" target="_blank">WhatsApp poruka</a> ·
-          <a href="tel:+385993997777">Nazovi odmah</a> ·
-          <a href="mailto:pleco.zg@hotmail.com">Pošalji email</a>
+    <div class="container header-inner">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="PLECO logo">
+      </div>
+      <div class="hero-content">
+        <h1>PLECO profesionalno čišćenje</h1>
+        <p class="sub">Temeljito i pouzdano – baš kao Pleco, mi čistimo vaš prostor!</p>
+        <p class="hero-text">
+          Temeljito čišćenje stanova i kuća, završno čišćenje prije useljenja te dubinsko čišćenje namještaja i vozila.
+          Odaberi uslugu, unesi detalje i rezerviraj termin u par sekundi.
         </p>
+
+        <a href="#rezervacija" class="cta-btn">
+          Provjeri cijenu &amp; rezerviraj
+        </a>
+
+        <div class="hero-contact">
+          <p>📞 <strong>099 399 7777</strong></p>
+          <p>📧 <strong>pleco.zg@hotmail.com</strong></p>
+          <p>📍 Zagreb, Maksimir</p>
+          <p>
+            <a href="https://wa.me/385993997777" target="_blank">WhatsApp poruka</a> ·
+            <a href="tel:+385993997777">Nazovi odmah</a> ·
+            <a href="mailto:pleco.zg@hotmail.com">Pošalji email</a>
+          </p>
+        </div>
       </div>
     </div>
   </header>
@@ -327,8 +357,8 @@
           <span class="service-pill">Dubinsko čišćenje</span>
           <h3>Dubinsko čišćenje namještaja, madraca i vozila</h3>
           <p>
-            Dubinsko strojno čišćenje za uklanjanje mrlja, nečistoća, alergena i neugodних mirisa iz tkanina i presvlaka.
-            Klijent bira što želi čistiti – kalkulator računa ukupni iznos.
+            Dubinsko strojno čišćenje za uklanjanje mrlja, nečistoća, alergena i neugodnih mirisa iz tkanina i presvlaka,
+            s dodatnim ventilatorima za brzo sušenje. Klijent bira što želi čistiti – kalkulator računa ukupni iznos.
           </p>
 
           <strong>Namještaj:</strong>
@@ -486,9 +516,8 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>📍 Zagreb – Maksimir i okolica</p>
       <p>📞 <a href="tel:+385993997777">099 399 7777</a> · 📧 <a href="mailto:pleco.zg@hotmail.com">pleco.zg@hotmail.com</a></p>
-      <p>&copy; 2025 PLECO PROFESIONALNO ČIŠĆENJE — Zagreb</p>
+      <p>&copy; 2025 PLECO PROFESIONALNO ČIŠĆENJE</p>
     </div>
   </footer>
 
@@ -602,7 +631,7 @@
       if (serviceType !== "dubinsko") {
         message += "Kvadratura: " + m2 + " m²%0A";
       } else {
-        message += "(Dubinsko čišćenje – detalji prema upitu)%0A";
+        message += "(Dubinsko čišćenje – detalji prema izabranim stavkama)%0A";
       }
 
       message += "Datum: " + date + "%0A";
