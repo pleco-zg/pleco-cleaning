@@ -191,7 +191,8 @@
       font-size: 14px;
     }
     #calcButton,
-    #whatsappButton {
+    #whatsappButton,
+    #emailButton {
       display: inline-block;
       margin-top: 10px;
       padding: 10px 18px;
@@ -212,8 +213,17 @@
       background: #25d366;
       color: white;
       display: none;
+      margin-right: 6px;
     }
     #whatsappButton:hover {
+      opacity: 0.92;
+    }
+    #emailButton {
+      background: #4b5563;
+      color: white;
+      display: none;
+    }
+    #emailButton:hover {
       opacity: 0.92;
     }
     .deep-grid {
@@ -264,12 +274,12 @@
 
         <div class="hero-contact">
           <p>📞 <strong>099 399 7777</strong></p>
-          <p>📧 <strong>pleco.zg@hotmail.com</strong></p>
+          <p>📧 <strong>plecociscenje@gmail.com</strong></p>
           <p>📍 Zagreb, Maksimir</p>
           <p>
             <a href="https://wa.me/385993997777" target="_blank">WhatsApp poruka</a> ·
             <a href="tel:+385993997777">Nazovi odmah</a> ·
-            <a href="mailto:pleco.zg@hotmail.com">Pošalji email</a>
+            <a href="mailto:plecociscenje@gmail.com">Pošalji email</a>
           </p>
         </div>
       </div>
@@ -510,13 +520,14 @@
 
       <button id="calcButton">Izračunaj cijenu</button>
       <button id="whatsappButton">Pošalji upit putem WhatsAppa</button>
+      <button id="emailButton">Pošalji upit e-mailom</button>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>📞 <a href="tel:+385993997777">099 399 7777</a> · 📧 <a href="mailto:pleco.zg@hotmail.com">pleco.zg@hotmail.com</a></p>
+      <p>📞 <a href="tel:+385993997777">099 399 7777</a> · 📧 <a href="mailto:plecociscenje@gmail.com">plecociscenje@gmail.com</a></p>
       <p>&copy; 2025 PLECO PROFESIONALNO ČIŠĆENJE</p>
     </div>
   </footer>
@@ -609,12 +620,7 @@
       return finalPrice;
     }
 
-    document.getElementById("calcButton").addEventListener("click", function () {
-      calculatePrice();
-      document.getElementById("whatsappButton").style.display = "inline-block";
-    });
-
-    document.getElementById("whatsappButton").addEventListener("click", function () {
+    function buildReservationMessage() {
       const serviceType = document.getElementById("serviceType").value;
       const m2 = document.getElementById("squareMeters").value;
       const date = document.getElementById("date").value;
@@ -625,27 +631,47 @@
       const notes = document.getElementById("notes").value;
 
       const finalPrice = calculatePrice();
+      const serviceLabel = serviceNameMap[serviceType];
 
-      let message = "Pozdrav! Želio/la bih rezervirati uslugu: " + serviceNameMap[serviceType] + "%0A";
+      let message = "Pozdrav! Želio/la bih rezervirati uslugu: " + serviceLabel + "\n";
 
       if (serviceType !== "dubinsko") {
-        message += "Kvadratura: " + m2 + " m²%0A";
+        message += "Kvadratura: " + m2 + " m²\n";
       } else {
-        message += "(Dubinsko čišćenje – detalji prema izabranim stavkama)%0A";
+        message += "(Dubinsko čišćenje – detalji prema izabranim stavkama)\n";
       }
 
-      message += "Datum: " + date + "%0A";
-      message += "Vrijeme: " + time + "%0A";
-      message += "Procijenjena cijena: " + finalPrice.toFixed(2) + " €%0A%0A";
-      message += "Ime i prezime: " + name + "%0A";
-      message += "Telefon: " + phone + "%0A";
-      message += "Adresa: " + address + "%0A";
-      message += "Napomena: " + notes + "%0A";
+      message += "Datum: " + date + "\n";
+      message += "Vrijeme: " + time + "\n";
+      message += "Procijenjena cijena: " + finalPrice.toFixed(2) + " €\n\n";
+      message += "Ime i prezime: " + name + "\n";
+      message += "Telefon: " + phone + "\n";
+      message += "Adresa: " + address + "\n";
+      message += "Napomena: " + notes + "\n";
 
+      return { message, serviceLabel };
+    }
+
+    document.getElementById("calcButton").addEventListener("click", function () {
+      calculatePrice();
+      document.getElementById("whatsappButton").style.display = "inline-block";
+      document.getElementById("emailButton").style.display = "inline-block";
+    });
+
+    document.getElementById("whatsappButton").addEventListener("click", function () {
+      const { message } = buildReservationMessage();
       const whatsappNumber = "385993997777";
-      const whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + message;
-
+      const whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
       window.open(whatsappUrl, "_blank");
+    });
+
+    document.getElementById("emailButton").addEventListener("click", function () {
+      const { message, serviceLabel } = buildReservationMessage();
+      const subject = "Upit za uslugu čišćenja - " + serviceLabel;
+      const mailTo = "mailto:plecociscenje@gmail.com"
+        + "?subject=" + encodeURIComponent(subject)
+        + "&body=" + encodeURIComponent(message);
+      window.location.href = mailTo;
     });
   </script>
 
