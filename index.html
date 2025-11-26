@@ -1,653 +1,213 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-  <meta charset="UTF-8" />
-  <title>PLECO profesionalno čišćenje – Zagreb</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Profesionalno čišćenje stanova, kuća, završno čišćenje prije useljenja i dubinsko čišćenje namještaja i vozila u Zagrebu – Maksimir i okolica." />
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #1f2933;
-      line-height: 1.6;
-      background: #ffffff;
-    }
-    a { color: #1e73ff; }
-    header hero, section, footer {
-      box-sizing: border-box;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    header {
-      background: #f7faff;
-      padding: 25px 0 30px 0;
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .logo-wrap {
-      flex: 0 0 auto;
-      display: flex;
-      justify-content: center;
-    }
-    .logo-wrap img {
-      height: 150px;
-      max-width: 100%;
-      object-fit: contain;
-    }
-    .hero-content {
-      flex: 1 1 260px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 32px;
-      margin: 0 0 8px 0;
-      color: #0a2a57;
-    }
-    header p.sub {
-      margin: 0 0 10px 0;
-      font-size: 16px;
-      color: #4b5563;
-      font-weight: 500;
-    }
-    .hero-text {
-      font-size: 18px;
-      max-width: 650px;
-      margin: 15px auto 25px auto;
-      color: #334455;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: #1e73ff;
-      color: white;
-      padding: 14px 28px;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.25s ease;
-    }
-    .cta-btn:hover {
-      background: #155bcc;
-    }
-    .hero-contact {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #334455;
-    }
-    .hero-contact p {
-      margin: 4px 0;
-    }
-    section {
-      padding: 30px 0;
-    }
-    section h2 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #0a2a57;
-      text-align: center;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    @media (min-width: 800px) {
-      .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .hero-content {
-        text-align: left;
-      }
-    }
-    .service-card {
-      border: 1px solid #e0e7ff;
-      border-radius: 12px;
-      padding: 18px;
-      background: #ffffff;
-    }
-    .service-card h3 {
-      margin-top: 0;
-      color: #0b3a75;
-      font-size: 20px;
-    }
-    .service-price {
-      font-weight: 600;
-      margin-top: 8px;
-      color: #111827;
-    }
-    .service-pill {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: #eff4ff;
-      font-size: 12px;
-      margin-bottom: 6px;
-    }
-    ul {
-      padding-left: 20px;
-      margin-top: 6px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pleco Cleaning</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
 
-    /* Kalkulator */
-    #rezervacija {
-      border-top: 1px solid #e5e7eb;
-      border-bottom: 1px solid #e5e7eb;
-      background: #f9fafb;
-    }
-    #rezervacija-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-      border-radius: 12px;
-    }
-    #rezervacija h2 {
-      margin-bottom: 6px;
-    }
-    #rezervacija p {
-      text-align: center;
-      margin-top: 0;
-      margin-bottom: 16px;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      font-weight: 500;
-      font-size: 14px;
-    }
-    input[type="text"],
-    input[type="tel"],
-    input[type="number"],
-    input[type="date"],
-    input[type="time"],
-    select,
-    textarea {
-      width: 100%;
-      max-width: 100%;
-      padding: 8px 10px;
-      border-radius: 6px;
-      border: 1px solid #d1d5db;
-      font-size: 14px;
-      box-sizing: border-box;
-    }
-    textarea {
-      resize: vertical;
-    }
-    #priceDetails {
-      background: #eef2ff;
-      padding: 10px 12px;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-    #calcButton,
-    #whatsappButton {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      border: none;
-      font-size: 15px;
-      cursor: pointer;
-    }
-    #calcButton {
-      background: #1e73ff;
-      color: white;
-      margin-right: 6px;
-    }
-    #calcButton:hover {
-      background: #155bcc;
-    }
-    #whatsappButton {
-      background: #25d366;
-      color: white;
-      display: none;
-    }
-    #whatsappButton:hover {
-      opacity: 0.92;
-    }
-    .deep-grid {
-      display: grid;
-      grid-template-columns: 1fr 120px 60px;
-      gap: 6px;
-      align-items: center;
-      font-size: 14px;
-    }
-    @media (max-width: 600px) {
-      .deep-grid {
-        grid-template-columns: 1fr 100px 50px;
-      }
-    }
+        header {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+        }
 
-    footer {
-      padding: 20px 0 30px 0;
-      background: #0b1220;
-      color: #e5e7eb;
-      text-align: center;
-      font-size: 14px;
-    }
-    footer a {
-      color: #93c5fd;
-      text-decoration: none;
-    }
-  </style>
+        header img {
+            width: 120px;
+        }
+
+        .hero {
+            background-image: url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .calculator label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .calculator input, .calculator select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .calculator button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .total-box {
+            margin-top: 15px;
+            padding: 15px;
+            background: #eaeaea;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Novi gumbi koje želiš */
+        .send-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .email-btn {
+            background-color: #0073ff;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background: #222;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header>
-    <div class="container header-inner">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="PLECO logo">
-      </div>
-      <div class="hero-content">
-        <h1>PLECO profesionalno čišćenje</h1>
-        <p class="sub">Temeljito i pouzdano – baš kao Pleco, mi čistimo vaš prostor!</p>
-        <p class="hero-text">
-          Temeljito čišćenje stanova i kuća, završno čišćenje prije useljenja te dubinsko čišćenje namještaja i vozila.
-          Odaberi uslugu, unesi detalje i rezerviraj termin u par sekundi.
-        </p>
+<header>
+    <img src="logo.png" alt="Pleco Cleaning Logo">
+</header>
 
-        <a href="#rezervacija" class="cta-btn">
-          Provjeri cijenu &amp; rezerviraj
-        </a>
+<div class="hero">
+    Profesionalno čišćenje – Tepisi • Kauči • Madraci • Vozila
+</div>
 
-        <div class="hero-contact">
-          <p>📞 <strong>099 399 7777</strong></p>
-          <p>📧 <strong>pleco.zg@hotmail.com</strong></p>
-          <p>📍 Zagreb, Maksimir</p>
-          <p>
-            <a href="https://wa.me/385993997777" target="_blank">WhatsApp poruka</a> ·
-            <a href="tel:+385993997777">Nazovi odmah</a> ·
-            <a href="mailto:pleco.zg@hotmail.com">Pošalji email</a>
-          </p>
-        </div>
-      </div>
+<section class="calculator">
+    <h2>Izračun cijene</h2>
+
+    <label for="service">Vrsta usluge:</label>
+    <select id="service">
+        <option value="tepih">Pranje tepiha</option>
+        <option value="kauc">Dubinsko čišćenje kauča</option>
+        <option value="madrac">Dubinsko čišćenje madraca</option>
+        <option value="vozilo">Dubinsko čišćenje sjedala u vozilu</option>
+    </select>
+
+    <label for="m2">m2 (ako se odnosi):</label>
+    <input type="number" id="m2" placeholder="Unesite m2">
+
+    <label for="sjedala">Broj sjedala (ako se odnosi):</label>
+    <input type="number" id="sjedala" placeholder="Unesite broj sjedala">
+
+    <button onclick="calculate()">Izračunaj</button>
+
+    <div class="total-box">
+        Ukupna cijena: <span id="total">0 €</span>
     </div>
-  </header>
 
-  <!-- USLUGE -->
-  <main class="container">
-    <section id="usluge">
-      <h2>Naše usluge čišćenja</h2>
-      <p style="text-align:center; max-width:650px; margin:0 auto 10px;">
-        Specijalizirani smo za generalno čišćenje stambenih prostora, završno čišćenje prije useljenja / nakon radova te
-        dubinsko čišćenje namještaja, madraca i vozila.
-      </p>
-
-      <div class="services-grid">
-
-        <!-- Generalno -->
-        <article class="service-card">
-          <span class="service-pill">Stanovi i kuće</span>
-          <h3>Generalno čišćenje stana / kuće</h3>
-          <p>
-            Detaljno čišćenje cijelog prostora – idealno nakon dužeg perioda bez čišćenja, prije gostiju ili kad jednostavno
-            želiš da sve zablista.
-          </p>
-
-          <strong>Kuhinja:</strong>
-          <ul>
-            <li>Temeljito uklanjanje prašine sa svih dostupnih i teško dostupnih mjesta.</li>
-            <li>Detaljno čišćenje svih kuhinjskih elemenata (izvana i iznutra, gdje je pristupno).</li>
-            <li>Temeljito čišćenje pećnice, štednjaka i nape.</li>
-            <li>Čišćenje frižidera iznutra (po potrebi isprazniti sadržaj).</li>
-          </ul>
-
-          <strong>Kupaonica:</strong>
-          <ul>
-            <li>Temeljito uklanjanje prašine sa svih dostupnih i teško dostupnih mjesta.</li>
-            <li>Dubinsko čišćenje svih kupaonskih elemenata.</li>
-            <li>Dezinfekcija i uklanjanje kamenca.</li>
-            <li>Čišćenje ogledala i staklenih površina.</li>
-            <li>Brisanje i pranje podova.</li>
-          </ul>
-
-          <strong>Sobe i hodnik:</strong>
-          <ul>
-            <li>Uklanjanje prašine i brisanje svih površina.</li>
-            <li>Čišćenje ogledala i staklenih površina.</li>
-            <li>Usisavanje i pranje svih podova.</li>
-            <li>Brisanje prašine s polica, lustera i drugih površina.</li>
-            <li>Brisanje prozora.</li>
-          </ul>
-
-          <p class="service-price">
-            Cijena: od <strong>1,99 € / m²</strong> — minimalno <strong>65 €</strong> po dolasku.
-          </p>
-        </article>
-
-        <!-- Selidba / završno -->
-        <article class="service-card">
-          <span class="service-pill">Prije useljenja / nakon radova</span>
-          <h3>Čišćenje prije selidbe / završno čišćenje</h3>
-          <p>
-            Idealno nakon adaptacije, građevinskih radova ili prije useljenja u novi prostor – kada je potrebno
-            ukloniti građevinsku prašinu i tragove radova.
-          </p>
-
-          <ul>
-            <li>Uklanjanje zaštitnih folija, traka i manjeg građevinskog otpada.</li>
-            <li>Temeljito usisavanje i uklanjanje građevinske prašine.</li>
-            <li>Čišćenje rasvjetnih elemenata, prekidača, utičnica i ventilacija.</li>
-            <li>Pranje prozora, okvira i roleta, uklanjanje tragova boje i ljepila.</li>
-            <li>Dubinsko čišćenje svih vrsta podova.</li>
-            <li>Dezinfekcija kuhinje i kupaonice nakon radova.</li>
-            <li>Brisanje vrata, kvaka i okvira.</li>
-            <li>Čišćenje unutrašnjosti ormara i ugrađenog namještaja.</li>
-          </ul>
-
-          <p class="service-price">
-            Cijena: od <strong>2,99 € / m²</strong> — minimalno <strong>90 €</strong> po dolasku.
-          </p>
-        </article>
-
-        <!-- Dubinsko -->
-        <article class="service-card">
-          <span class="service-pill">Dubinsko čišćenje</span>
-          <h3>Dubinsko čišćenje namještaja, madraca i vozila</h3>
-          <p>
-            Dubinsko strojno čišćenje za uklanjanje mrlja, nečistoća, alergena i neugodnih mirisa iz tkanina i presvlaka,
-            s dodatnim ventilatorima za brzo sušenje. Klijent bira što želi čistiti – kalkulator računa ukupni iznos.
-          </p>
-
-          <strong>Namještaj:</strong>
-          <ul>
-            <li>Tepih – 5 €/m²</li>
-            <li>Stolica – 10 €</li>
-            <li>Fotelja – 15 €</li>
-            <li>Tabure – 10 €</li>
-            <li>U-garnitura – 90 €</li>
-            <li>L-garnitura – 70 €</li>
-            <li>Dvosjed – 45 €</li>
-            <li>Trosjed – 55 €</li>
-          </ul>
-
-          <strong>Madraci i kreveti:</strong>
-          <ul>
-            <li>Madrac (jedna osoba, obostrano) – 20/25 €</li>
-            <li>Bračni madrac (obostrano) – 35/55 €</li>
-          </ul>
-
-          <strong>Vozila:</strong>
-          <ul>
-            <li>Automobilsko sjedalo – 24 €</li>
-            <li>Stražnja sjedala (3 kom) – 36 €</li>
-            <li>Pod i gepek automobila – 30 €</li>
-            <li>Autobus – 500 €</li>
-          </ul>
-
-          <p class="service-price">
-            Minimalno <strong>50 €</strong> po dolasku.
-          </p>
-        </article>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- REZERVACIJA + KALKULATOR -->
-  <section id="rezervacija">
-    <div id="rezervacija-inner" class="container">
-      <h2>Odaberi uslugu, unesi detalje i rezerviraj termin u par sekundi.</h2>
-      <p>Unesi osnovne podatke o prostoru i odmah ćeš dobiti procijenjenu cijenu prije same rezervacije.</p>
-
-      <!-- Vrsta usluge -->
-      <label for="serviceType"><strong>Vrsta usluge:</strong></label>
-      <select id="serviceType">
-        <option value="generalno">Generalno čišćenje stana / kuće</option>
-        <option value="selidba">Čišćenje prije selidbe / završno čišćenje</option>
-        <option value="dubinsko">Dubinsko čišćenje namještaja / madraca / vozila</option>
-      </select>
-
-      <!-- Kvadratura (samo za generalno i selidbu) -->
-      <div id="squareMetersWrapper">
-        <label for="squareMeters">Kvadratura (m²):</label>
-        <input type="number" id="squareMeters" min="15" max="300" value="50" />
-      </div>
-
-      <!-- Dubinsko čišćenje – stavke -->
-      <div id="deepCleaningSection" style="margin-top: 16px; display: none;">
-        <h3 style="margin-top:0;">Dubinsko čišćenje – odaberi stavke</h3>
-        <p style="font-size: 14px; margin-top: 0;">
-          Unesi količinu za svaku stavku (0 ako ne trebaš). Cijena se automatski zbraja – minimalno 50 € po dolasku.
-        </p>
-
-        <div class="deep-grid">
-          <span>Tepih (m²) – 5 €/m²</span>
-          <input type="number" id="dc_tepih_m2" min="0" value="0" />
-          <span>m²</span>
-
-          <span>Stolica – 10 €</span>
-          <input type="number" id="dc_stolica" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Fotelja – 15 €</span>
-          <input type="number" id="dc_fotelja" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Tabure – 10 €</span>
-          <input type="number" id="dc_tabure" min="0" value="0" />
-          <span>kom</span>
-
-          <span>U-garnitura – 90 €</span>
-          <input type="number" id="dc_u_garnitura" min="0" value="0" />
-          <span>kom</span>
-
-          <span>L-garnitura – 70 €</span>
-          <input type="number" id="dc_l_garnitura" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Dvosjed – 45 €</span>
-          <input type="number" id="dc_dvosjed" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Trosjed – 55 €</span>
-          <input type="number" id="dc_trosjed" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Madrac single – 25 €</span>
-          <input type="number" id="dc_madrac_single" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Bračni madrac – 55 €</span>
-          <input type="number" id="dc_madrac_double" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Automobilsko sjedalo – 24 €</span>
-          <input type="number" id="dc_auto_sjedalo" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Stražnja sjedala (3 kom) – 36 €</span>
-          <input type="number" id="dc_auto_straznja" min="0" value="0" />
-          <span>set</span>
-
-          <span>Pod i gepek automobila – 30 €</span>
-          <input type="number" id="dc_auto_pod_gepek" min="0" value="0" />
-          <span>kom</span>
-
-          <span>Autobus – 500 €</span>
-          <input type="number" id="dc_bus" min="0" value="0" />
-          <span>kom</span>
-        </div>
-      </div>
-
-      <!-- Datum i vrijeme -->
-      <label for="date" style="margin-top:20px;">Datum čišćenja:</label>
-      <input type="date" id="date" />
-
-      <label for="time">Vrijeme početka:</label>
-      <input type="time" id="time" />
-
-      <!-- Kontakt podaci -->
-      <h3 style="margin-top:18px;">Kontakt podaci</h3>
-
-      <label for="name">Ime i prezime:</label>
-      <input type="text" id="name" placeholder="Vaše ime" />
-
-      <label for="phone">Telefon / mobitel:</label>
-      <input type="tel" id="phone" placeholder="npr. 099 399 7777" />
-
-      <label for="address">Adresa (ulica, broj, kvart):</label>
-      <input type="text" id="address" placeholder="Ulica 1, Zagreb" />
-
-      <label for="notes">Napomena:</label>
-      <textarea id="notes" rows="3" placeholder="npr. kućni ljubimci, posebno prljavo, nema lifta..."></textarea>
-
-      <!-- Rezultat cijene -->
-      <h3 style="margin-top:18px;">Procjena cijene</h3>
-      <p id="priceDetails">Unesi podatke za prikaz procjene.</p>
-
-      <button id="calcButton">Izračunaj cijenu</button>
-      <button id="whatsappButton">Pošalji upit putem WhatsAppa</button>
+    <!-- NOVI GUMBI -->
+    <div class="send-buttons">
+        <button id="sendWhatsApp" class="whatsapp-btn">Pošalji na WhatsApp</button>
+        <button id="sendEmail" class="email-btn">Pošalji na Email</button>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>📞 <a href="tel:+385993997777">099 399 7777</a> · 📧 <a href="mailto:pleco.zg@hotmail.com">pleco.zg@hotmail.com</a></p>
-      <p>&copy; 2025 PLECO PROFESIONALNO ČIŠĆENJE</p>
-    </div>
-  </footer>
+</section>
 
-  <script>
-    const serviceNameMap = {
-      "generalno": "Generalno čišćenje stana / kuće",
-      "selidba": "Čišćenje prije selidbe / završno čišćenje",
-      "dubinsko": "Dubinsko čišćenje namještaja / madraca / vozila"
-    };
+<footer>
+    © 2025 Pleco Cleaning – Zagreb
+</footer>
 
-    function updateFormVisibility() {
-      const serviceType = document.getElementById("serviceType").value;
-      const squareWrapper = document.getElementById("squareMetersWrapper");
-      const deepSection = document.getElementById("deepCleaningSection");
+<script>
+    function calculate() {
+        const service = document.getElementById("service").value;
+        const m2 = Number(document.getElementById("m2").value);
+        const sjedala = Number(document.getElementById("sjedala").value);
 
-      if (serviceType === "dubinsko") {
-        squareWrapper.style.display = "none";
-        deepSection.style.display = "block";
-      } else {
-        squareWrapper.style.display = "block";
-        deepSection.style.display = "none";
-      }
+        let total = 0;
+
+        if (service === "tepih") total = m2 * 2.5;
+        if (service === "kauc") total = m2 * 4;
+        if (service === "madrac") total = m2 * 3;
+        if (service === "vozilo") total = sjedala * 7;
+
+        document.getElementById("total").innerText = total + " €";
     }
 
-    document.getElementById("serviceType").addEventListener("change", updateFormVisibility);
-    updateFormVisibility();
+    /* FUNKCIJA – sastavlja poruku */
+    function getClientData() {
+        const vrsta = document.getElementById("service").value;
+        const m2 = document.getElementById("m2").value;
+        const sjedala = document.getElementById("sjedala").value;
+        const cijena = document.getElementById("total").innerText;
 
-    function calculatePrice() {
-      const serviceType = document.getElementById("serviceType").value;
-      let finalPrice = 0;
-      let detailsText = "";
-
-      if (serviceType === "dubinsko") {
-        const prices = {
-          dc_tepih_m2: 5,
-          dc_stolica: 10,
-          dc_fotelja: 15,
-          dc_tabure: 10,
-          dc_u_garnitura: 90,
-          dc_l_garnitura: 70,
-          dc_dvosjed: 45,
-          dc_trosjed: 55,
-          dc_madrac_single: 25,
-          dc_madrac_double: 55,
-          dc_auto_sjedalo: 24,
-          dc_auto_straznja: 36,
-          dc_auto_pod_gepek: 30,
-          dc_bus: 500
-        };
-
-        let sum = 0;
-
-        for (const id in prices) {
-          const quantity = parseFloat(document.getElementById(id).value) || 0;
-          if (quantity > 0) {
-            const linePrice = quantity * prices[id];
-            sum += linePrice;
-          }
-        }
-
-        finalPrice = Math.max(sum, 50);
-        detailsText = "Dubinsko čišćenje – ukupno: " + finalPrice.toFixed(2) + " € (minimalno 50 € po dolasku).";
-
-      } else {
-        const m2 = parseFloat(document.getElementById("squareMeters").value) || 0;
-        let pricePerM2 = 0;
-        let minPrice = 0;
-
-        if (serviceType === "generalno") {
-          pricePerM2 = 1.99;
-          minPrice = 65;
-        } else if (serviceType === "selidba") {
-          pricePerM2 = 2.99;
-          minPrice = 90;
-        }
-
-        let rawPrice = m2 * pricePerM2;
-        finalPrice = Math.max(rawPrice, minPrice);
-        finalPrice = Math.round(finalPrice * 100) / 100;
-
-        detailsText =
-          serviceNameMap[serviceType] +
-          " | Kvadratura: " + m2 + " m²" +
-          " | Procijenjena cijena: " + finalPrice + " €" +
-          " (ovisno o stvarnom stanju prostora).";
-      }
-
-      document.getElementById("priceDetails").textContent = detailsText;
-      return finalPrice;
+        return `Upit sa stranice Pleco Cleaning:
+-------------------------------------
+Vrsta usluge: ${vrsta}
+m2 / Sjedala: ${m2 || sjedala}
+Ukupna cijena: ${cijena}
+-------------------------------------`;
     }
 
-    document.getElementById("calcButton").addEventListener("click", function () {
-      calculatePrice();
-      document.getElementById("whatsappButton").style.display = "inline-block";
+    /* WHATSAPP */
+    document.getElementById("sendWhatsApp").addEventListener("click", function () {
+        const msg = encodeURIComponent(getClientData());
+        const broj = "385993997777"; 
+        window.open(`https://wa.me/${broj}?text=${msg}`, "_blank");
     });
 
-    document.getElementById("whatsappButton").addEventListener("click", function () {
-      const serviceType = document.getElementById("serviceType").value;
-      const m2 = document.getElementById("squareMeters").value;
-      const date = document.getElementById("date").value;
-      const time = document.getElementById("time").value;
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const address = document.getElementById("address").value;
-      const notes = document.getElementById("notes").value;
-
-      const finalPrice = calculatePrice();
-
-      let message = "Pozdrav! Želio/la bih rezervirati uslugu: " + serviceNameMap[serviceType] + "%0A";
-
-      if (serviceType !== "dubinsko") {
-        message += "Kvadratura: " + m2 + " m²%0A";
-      } else {
-        message += "(Dubinsko čišćenje – detalji prema izabranim stavkama)%0A";
-      }
-
-      message += "Datum: " + date + "%0A";
-      message += "Vrijeme: " + time + "%0A";
-      message += "Procijenjena cijena: " + finalPrice.toFixed(2) + " €%0A%0A";
-      message += "Ime i prezime: " + name + "%0A";
-      message += "Telefon: " + phone + "%0A";
-      message += "Adresa: " + address + "%0A";
-      message += "Napomena: " + notes + "%0A";
-
-      const whatsappNumber = "385993997777";
-      const whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + message;
-
-      window.open(whatsappUrl, "_blank");
+    /* EMAIL */
+    document.getElementById("sendEmail").addEventListener("click", function () {
+        const subject = encodeURIComponent("Novi upit – Pleco Cleaning");
+        const body = encodeURIComponent(getClientData());
+        window.location.href = `mailto:pleco.zg@hotmail.com?subject=${subject}&body=${body}`;
     });
-  </script>
+</script>
 
 </body>
 </html>
